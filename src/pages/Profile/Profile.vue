@@ -96,6 +96,7 @@
 
 <script>
   import {mapState} from 'vuex'
+  import { MessageBox } from 'mint-ui'
   import HeaderTop from '../../components/HeaderTop/HeaderTop'
 
   export default {
@@ -108,10 +109,12 @@
     methods:{
       // 退出登录
       logout(){
-        // 清除vuex中保存的user
-        this.$store.dispatch('resetUser')
-        // 跳转到登录界面
-        this.$router.replace('login')
+        MessageBox.confirm('确定要退出登录吗?').then(action => {
+          // 清除vuex中保存的user
+          this.$store.dispatch('resetUser')
+          // 跳转到登录界面
+          this.$router.replace('login')
+        })
       }
     },
 
