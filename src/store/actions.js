@@ -5,7 +5,7 @@
 * 可以包含异步代码（定时器，ajax）
 * */
 
-import {reqAddress, reqCategorys, reqShops} from '../api'
+import {reqAddress, reqCategorys, reqShops,reqUser} from '../api'
 import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS,SAVE_USER,RESET_USER} from './mutation-types'
 
 export default {
@@ -36,6 +36,15 @@ export default {
     if(result.code === 0){
       const shops = result.data
       commit(RECEIVE_SHOPS,{shops})
+    }
+  },
+
+  // 异步获取用户信息
+  async getUserInfo({commit}){
+    const result = await reqUser()
+    if(result.code === 0){
+      const user = result.data
+      commit(SAVE_USER,{user})
     }
   },
 
