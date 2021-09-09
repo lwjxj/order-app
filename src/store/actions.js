@@ -5,8 +5,8 @@
 * 可以包含异步代码（定时器，ajax）
 * */
 
-import {reqAddress, reqCategorys, reqShops,reqUser} from '../api'
-import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS,SAVE_USER,RESET_USER} from './mutation-types'
+import {reqAddress, reqCategorys, reqShopInfo, reqShopRatings, reqShops, reqUser} from '../api'
+import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS,SAVE_USER,RESET_USER,RECEIVE_SHOPINFO,RECEIVE_SHOP_RATING,RECEIVE_SHOP_GOODS} from './mutation-types'
 
 export default {
   // 异步获取地址
@@ -56,5 +56,32 @@ export default {
   // 同步清除用户信息
   resetUser({commit}){
     commit(RESET_USER)
-  }
+  },
+
+  // 异步获取商家信息
+  async getShopInfo({commit}){
+    const result = await reqShopInfo()
+    if(result.code === 0){
+      const shopInfo = result.data
+      commit(RECEIVE_SHOPINFO,{shopInfo})
+    }
+  },
+
+  // 异步获取商家评价列表
+  async getShopRatings({commit}){
+    const result = await reqShopRatings()
+    if(result.code === 0){
+      const shopRatings = result.data
+      commit(RECEIVE_SHOP_RATING,{shopRatings})
+    }
+  },
+
+  // 异步获取商家商品列表
+  async getShopGoods({commit}){
+    const result = await reqShopGoods()
+    if(result.code === 0){
+      const shopRatings = result.data
+      commit(RECEIVE_SHOP_RATING,{shopRatings})
+    }
+  },
 }

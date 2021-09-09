@@ -16,3 +16,12 @@ export const SAVE_USER = 'save_user'
 
 // 清除user信息
 export const RESET_USER = 'reset_user'
+
+// 获取商家信息
+export const RECEIVE_SHOPINFO = 'receive_shopinfo'
+
+// 获取商家评价信息
+export const RECEIVE_SHOP_RATING = 'receive_shop_rating'
+
+// 获取商家商品信息
+export const RECEIVE_SHOP_GOODS = 'receive_shop_goods'
