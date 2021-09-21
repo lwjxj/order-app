@@ -25,3 +25,9 @@ export const RECEIVE_SHOP_RATING = 'receive_shop_rating'
 
 // 获取商家商品信息
 export const RECEIVE_SHOP_GOODS = 'receive_shop_goods'
+
+// 增加food的count
+export const INCREMENT_FOOD_COUNT = 'increment_food_count'
+
+// 减少food的count
+export const DECREMENT_FOOD_COUNT = 'decrement_food_count'

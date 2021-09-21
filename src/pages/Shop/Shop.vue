@@ -22,6 +22,10 @@
     mounted () {
       // 获取商家信息
       this.$store.dispatch('getShopInfo')
+      // 获取商家商品列表
+      this.$store.dispatch('getShopGoods')
+      // 获取商家评价列表
+      this.$store.dispatch('getShopRatings')
     },
     components:{
       ShopHeader

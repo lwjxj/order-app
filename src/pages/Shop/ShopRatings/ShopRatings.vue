@@ -1,5 +1,5 @@
 <template>
-  ShopRatings
+  <div>ShopRatings</div>
 </template>
 
 <script>

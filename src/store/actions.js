@@ -5,8 +5,18 @@
 * 可以包含异步代码（定时器，ajax）
 * */
 
-import {reqAddress, reqCategorys, reqShopInfo, reqShopRatings, reqShops, reqUser} from '../api'
-import {RECEIVE_ADDRESS,RECEIVE_CATEGORYS,RECEIVE_SHOPS,SAVE_USER,RESET_USER,RECEIVE_SHOPINFO,RECEIVE_SHOP_RATING,RECEIVE_SHOP_GOODS} from './mutation-types'
+import {reqAddress, reqCategorys, reqShopInfo, reqShopRatings, reqShops, reqUser,reqShopGoods} from '../api'
+import {
+  RECEIVE_ADDRESS,
+  RECEIVE_CATEGORYS,
+  RECEIVE_SHOPS,
+  SAVE_USER,
+  RESET_USER,
+  RECEIVE_SHOPINFO,
+  RECEIVE_SHOP_RATING,
+  RECEIVE_SHOP_GOODS,
+  INCREMENT_FOOD_COUNT, DECREMENT_FOOD_COUNT
+} from './mutation-types'
 
 export default {
   // 异步获取地址
@@ -77,11 +87,21 @@ export default {
   },
 
   // 异步获取商家商品列表
-  async getShopGoods({commit}){
+  async getShopGoods({commit},callback){
     const result = await reqShopGoods()
     if(result.code === 0){
-      const shopRatings = result.data
-      commit(RECEIVE_SHOP_RATING,{shopRatings})
+      const shopGoods = result.data
+      commit(RECEIVE_SHOP_GOODS,{shopGoods})
+      callback && callback()
     }
   },
+
+  // 更新食品数量
+  updateFoodCount({commit},{food,isAdd}){
+    if(isAdd){ // 增加
+      commit(INCREMENT_FOOD_COUNT,{food})
+    }else {// 减少
+      commit(DECREMENT_FOOD_COUNT,{food})
+    }
+  }
 }
