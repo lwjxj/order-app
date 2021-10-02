@@ -210,7 +210,7 @@
 
 <style lang="stylus">
   @import "../../common/stylus/mixins.styl"
-  .msite  //首页
+  .msite
     width 100%
     .header
       background-color #02a774

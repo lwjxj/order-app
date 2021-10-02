@@ -16,8 +16,8 @@
           <li class="food-list-hook" v-for="(good,index) in shopGoods" :key="index">
             <h1 class="title">{{good.name}}</h1>
             <ul>
-              <li class="food-item bottom-border-1px" v-for="(food,index) in good.foods" :key="index" @click="showFood(food)">
-                <div class="icon">
+              <li class="food-item bottom-border-1px" v-for="(food,index) in good.foods" :key="index">
+                <div class="icon" @click="showFood(food)">
                   <img width="57" height="57" :src="food.icon">
                 </div>
                 <div class="content">

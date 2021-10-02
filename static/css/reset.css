@@ -88,7 +88,6 @@ input {
   vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
 article,
 aside,
 details,
@@ -123,7 +122,6 @@ table {
   border-spacing: 0;
 }
 
-/* custom */
 a {
   color: #7e8c8d;
   text-decoration: none;
@@ -167,7 +165,6 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/*显示省略号*/
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

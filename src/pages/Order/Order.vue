@@ -23,7 +23,7 @@
 </script>
 
 <style lang="stylus">
-  .order //订单
+  .order
     width 100%
 
     .header

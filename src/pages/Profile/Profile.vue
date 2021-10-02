@@ -130,7 +130,7 @@
 
 <style lang="stylus">
   @import '../../common/stylus/mixins.styl'
-  .profile //我的
+  .profile
     width 100%
     .header
       background-color #02a774
