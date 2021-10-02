@@ -31,3 +31,9 @@ export const INCREMENT_FOOD_COUNT = 'increment_food_count'
 
 // 减少food的count
 export const DECREMENT_FOOD_COUNT = 'decrement_food_count'
+
+// 清空购物车
+export const CLEAR_CART = 'clear_cart'
+
+// 搜索商家
+export const SEARCH_SHOPS = 'search_shops'

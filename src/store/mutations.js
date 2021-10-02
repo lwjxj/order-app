@@ -11,7 +11,7 @@ import {
   RECEIVE_SHOPINFO,
   RECEIVE_SHOP_RATING,
   RECEIVE_SHOP_GOODS,
-  INCREMENT_FOOD_COUNT, DECREMENT_FOOD_COUNT
+  INCREMENT_FOOD_COUNT, DECREMENT_FOOD_COUNT, CLEAR_CART, SEARCH_SHOPS
 } from './mutation-types'
 import Vue from 'vue'
 
@@ -72,5 +72,18 @@ export default {
         state.shopCart.splice(state.shopCart.indexOf(food),1)
       }
     }
-  }
+  },
+
+  // 清空购物车
+  [CLEAR_CART](state){
+    // 清除food中的count
+    state.shopCart.forEach(food => food.count = 0)
+    // 清空购物车中的物品
+    state.shopCart = []
+  },
+
+  // 搜索商家
+  [SEARCH_SHOPS](state, {searchShops}) {
+    state.searchShops = searchShops
+  },
 }

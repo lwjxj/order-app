@@ -28,11 +28,12 @@ export const reqUser = () => ajax('/api/userinfo')
 // 退出登录
 export const reqLogout = () => ajax('/api/logout')
 
+// 根据经纬度和关键字搜索商铺列表
+export const reqSearchShop = (geohash, keyword) => ajax('/api/search_shops', {geohash, keyword})
 
 
-/**
- * 获取商家信息
- */
+
+// 获取商家信息
 export const reqShopInfo = () => ajax('/info')
 
 // 获取商家评价数组
